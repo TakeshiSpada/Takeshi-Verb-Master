@@ -1,0 +1,126 @@
+/* Dark theme and quiz-friendly styling */
+body {
+  background-color: #121212;
+  color: #eee;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+#app {
+  max-width: 600px;
+  width: 100%;
+}
+
+.screen {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+h1, h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+select, button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: none;
+  background-color: #333;
+  color: #eee;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+select:hover, button:hover:not(:disabled) {
+  background-color: #555;
+}
+
+button:disabled {
+  background-color: #222;
+  cursor: not-allowed;
+}
+
+#question {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.option-btn {
+  background-color: #222;
+  border: 2px solid #555;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  user-select: none;
+}
+
+.option-btn:hover {
+  background-color: #444;
+  border-color: #aaa;
+}
+
+.option-btn.correct {
+  background-color: #2e7d32;
+  border-color: #4caf50;
+  color: #c8e6c9;
+  cursor: default;
+}
+
+.option-btn.incorrect {
+  background-color: #c62828;
+  border-color: #e53935;
+  color: #ffcdd2;
+  cursor: default;
+}
+
+header, footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#feedback {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  #question {
+    font-size: 1.2rem;
+  }
+  .option-btn {
+    font-size: 1rem;
+  }
+}

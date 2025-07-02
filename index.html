@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Japanese Verb Conjugation Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Start Screen -->
+    <section id="start-screen" class="screen">
+      <h1>Japanese する Verb Quiz</h1>
+      <label for="mode-select">Choose quiz mode:</label>
+      <select id="mode-select">
+        <option value="jp-en">Japanese → English</option>
+        <option value="en-jp">English → Japanese</option>
+      </select>
+      <label for="group-select">Choose group to study:</label>
+      <select id="group-select"></select>
+      <label><input type="checkbox" id="anime-toggle" checked /> Include Anime Talk</label>
+      <button id="start-quiz">Start Quiz</button>
+      <button id="open-cheatsheet">Open Cheat Sheet</button>
+    </section>
+
+    <!-- Quiz Screen -->
+    <section id="quiz-screen" class="screen hidden">
+      <header>
+        <div id="group-name"></div>
+        <div id="progress"></div>
+        <div id="score"></div>
+      </header>
+      <main>
+        <div id="question"></div>
+        <div id="options"></div>
+      </main>
+      <footer>
+        <div id="feedback"></div>
+        <button id="next-question" disabled>Next Question</button>
+        <button id="quit-quiz">Quit</button>
+      </footer>
+    </section>
+
+    <!-- Results Screen -->
+    <section id="results-screen" class="screen hidden">
+      <h2>Quiz Complete!</h2>
+      <div id="final-score"></div>
+      <button id="restart-quiz">Restart This Group</button>
+      <button id="back-to-start">Back to Start</button>
+    </section>
+  </div>
+  <script src="quiz-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cheat Sheet - Japanese する Verb</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 1px solid #666;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #333;
+    }
+    #anime-toggle-cheatsheet {
+      margin: 15px 0;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cheat Sheet - Japanese する Verb Conjugations</h1>
+  <label><input type="checkbox" id="anime-toggle-cheatsheet" checked /> Show Anime Talk</label>
+
+  <div id="cheatsheet-container"></div>
+
+  <script src="quiz-data.js"></script>
+  <script>
+    const container = document.getElementById('cheatsheet-container');
+    const animeToggle = document.getElementById('anime-toggle-cheatsheet');
+
+    function renderCheatSheet(showAnime) {
+      container.innerHTML = '';
+      conjugationGroups.forEach(group => {
+        if (group.isAnime && !showAnime) return;
+        const groupTitle = document.createElement('h2');
+        groupTitle.textContent = group.groupName;
+        container.appendChild(groupTitle);
+
+        const table = document.createElement('table');
+        const thead = document.createElement('thead');
+        const headerRow = document.createElement('tr');
+        ['Japanese', 'English Meaning'].forEach(text => {
+          const th = document.createElement('th');
+          th.textContent = text;
+          headerRow.appendChild(th);
+        });
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+
+        const tbody = document.createElement('tbody');
+        group.conjugations.forEach(item => {
+          const tr = document.createElement('tr');
+          const tdJp = document.createElement('td');
+          tdJp.textContent = item.jp;
+          const tdEn = document.createElement('td');
+          tdEn.textContent = item.en;
+          tr.appendChild(tdJp);
+          tr.appendChild(tdEn);
+          tbody.appendChild(tr);
+        });
+        table.appendChild(tbody);
+        container.appendChild(table);
+      });
+    }
+
+    animeToggle.addEventListener('change', () => {
+      renderCheatSheet(animeToggle.checked);
+    });
+
+    renderCheatSheet(true);
+  </script>
+</body>
+</html>
